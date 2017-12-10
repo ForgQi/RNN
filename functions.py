@@ -51,8 +51,8 @@ def count_chinese_word(filepath):
 
     return _dict,sdict,dict
 
-def save_word_frequency (_dict,name):
-    with open('%s.txt'%name, mode='w', encoding='utf-8') as outFile:
+def save_word_frequency (_dict,name,file_path):
+    with open(r'%s\%s.txt'%(file_path,name), mode='w', encoding='utf-8') as outFile:
         outFile.write('序号\t汉字\t字频\n')
         i = 0
         for char, frequency in sorted(_dict.items(), key=lambda d:d[1], reverse = True):
@@ -61,8 +61,8 @@ def save_word_frequency (_dict,name):
             outFile.write(s)
 
 
-def getpoetry ():
-    poetry_file = '全唐诗.txt'
+def getpoetry (poetry_file = r'_txt\全唐诗.txt'):
+    poetry_file = poetry_file
     poetry = []
     with open(poetry_file, mode='r', encoding='utf')as file:
         for line in file:
@@ -80,8 +80,8 @@ def getpoetry ():
             poetry.append(line+' ')
     return poetry
 
-def poetrys_and_titles ():
-    poetry_file = '汇总.txt'
+def poetrys_and_titles (poetry_file = r'_txt\汇总.txt'):
+    poetry_file = poetry_file
     poetrys = []
     titles = []
     with open(poetry_file,mode='r',encoding='utf')as file :
